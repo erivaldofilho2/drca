@@ -1,0 +1,36 @@
+{% include "header.html" %}
+
+<div class="conteudo">
+{%for departamento in departamentos%}
+	<h1>{{departamento}}</h1>
+	
+	{%for secretaria in secretarias%}
+		{%if secretaria.departamento.id == departamento.id%}
+		<h2>{{secretaria.nome}}<h2>
+				<table class="tab" >
+					<tr class="titulo">
+						<th>COD</th>
+						<th>Disciplina</th>
+						<th>Num Cred</th>
+						<th>Pre Requisitos</th>
+						<th>Num Cred min</th>
+					</tr>
+					{%for disciplina in disciplinas%}
+					<tr>
+						{%if disciplina.curso.secretaria.id == secretaria.id%}
+						<td>{{disciplina.codigo}}</td>
+						<td><a href="{{disciplina.id}}/info_disciplina">{{disciplina}}</a></td>
+						<td align="center">{{disciplina.credito.disc_cred}}</td>
+						<td align="center">--</td>
+						<td align="center">{{disciplina.credito.cred_obrigatorios}}</td> 
+						{%endif%}
+					</tr>
+					{%endfor%}
+				</table>
+		{%endif%} 
+	{%endfor%}
+	
+{%endfor%}
+</div>
+
+{% include "footer.html" %}

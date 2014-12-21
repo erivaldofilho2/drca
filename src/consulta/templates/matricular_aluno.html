@@ -1,0 +1,47 @@
+{% include "header.html" %}
+<div class="conteudo">
+<h2>Curso: {{aluno.curso}}</h2>
+<h3>{{aluno.curso.secretaria.departamento}}</h3>
+<h3>Aluno: {{aluno.nome}}</h3>
+	
+	{%if aluno.curso.secretaria.tipo == 1%}
+	<br><b>Disciplinas de graduação</b><br>
+	<table class="tab">
+		<tr>
+			<th>Codigo</th>
+			<th>Disciplina</th>
+			<th></th>
+		</tr>
+		{% for disciplina in disciplinas %}
+		<tr>
+			<td>{{disciplina.codigo}}</td>
+			<td>{{disciplina.nome}}</td>
+			<td><a href="/matricula/{{aluno.id}}/matricular_aluno/{{disciplina.id}}">Matricular</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+	{%endif%}
+	
+	<br><b>Disciplinas de pós-graduação</b><br>
+	<table class="tab">
+		<tr>
+			<th>Codigo</th>
+			<th>Disciplina</th>
+			<th></th>
+		</tr>
+		
+		{% for disciplina in pos_graduacao %}
+		<tr>
+			<td>{{disciplina.codigo}}</td>
+			<td>{{disciplina.nome}}</td>
+			<td><a href="/matricula/{{aluno.id}}/matricular_aluno/{{disciplina.id}}">Matricular</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+	
+	
+</div>
+
+
+
+{% include "footer.html" %}

@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript">
+			function verifica(status) {
+				if (status == 1) {
+					
+					alert('O aluno {{aluno}} foi matricula com sucesso na disciplina {{disciplina.nome}}');
+					window.history.back()
+				} else if(status == 0) {
+					
+					alert('Desculpe, Não foi possivel realizar a matricula do aluno {{aluno}} na disciplina {{disciplina.nome}}, pois o mesmo não possui credito!');
+					window.history.back()
+				}else if (status == 2){
+					alert('Você quer se matricular em {{disciplina.nome}}, essa materia exige que você tenha se matriculado em {{disciplina.disciplina_requisito}} ')
+					window.history.back()
+				}else if (status == 3){
+					alert('Você quer se matricular em uma disciplina de pós-graduação, mas não possui credito maior que 170')
+					window.history.back()
+				}else{
+					alert('Erro desconhecido')
+					window.history.back()
+					
+				}
+			}
+		</script>
+</head>
+<body onload="verifica({{status}})">
+</body>
+</html>

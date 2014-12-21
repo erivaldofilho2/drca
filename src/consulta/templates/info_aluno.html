@@ -1,0 +1,37 @@
+{% include "header.html" %}
+
+<div class="conteudo">
+<h1>Comprovante de matricula</h1>
+
+<fieldset>
+	<table>
+		<tr>
+			<td><b>Num Matricula:</b></td><td>{{aluno.matricula}}</td>
+			<td><b>Nome:</b></td><td>{{aluno.nome}}</td>
+			<td><b>Curso:</b></td><td>{{aluno.curso}}</td>
+			<td><b>,</b></td><td>{{aluno.curso.secretaria.departamento}}</td>
+		</tr>
+	</table>
+</fieldset>
+<br />
+<br />
+<fieldset>
+	<legend>Disciplinas Matriculados</legend>
+
+	<table class="tab">
+		<tr>
+			<th>Codigo</th>
+			<th>Materia</th>
+			<th>CH</th>
+		</tr>
+		{%for disciplina in disciplinas%}
+		<tr>
+			<td>{{disciplina.codigo}}</td>
+			<td>{{disciplina.nome}}</td>
+			<td>{{disciplina.credito}}</td>
+		</tr>
+		{%endfor%}
+	</table>
+</fieldset>
+</div>
+{% include "footer.html" %}

@@ -1,0 +1,23 @@
+{% include "header.html" %}
+
+<div class="conteudo">
+	<h1>Alunos</h1>
+
+	<fieldset>
+		<table class="tab">
+			<tr>
+				<th>Matricula</th> <th>Nome</th><th>Curso</th> <th>Creditos</th>
+			</tr>
+			{% for aluno in alunos %}
+			<tr>
+				<td>{{aluno.matricula}}</td>
+				<td><a href="{{aluno.id}}/info_aluno">{{aluno.nome}}</a></td>
+				<td>{{aluno.curso}}</td>
+				<td>Obrigatorio: {{aluno.credito.cred_obrigatorios}} / Eletivos: {{aluno.credito.cred_eletivos}}</td>
+				
+			</tr>
+			{%endfor%}
+		</table>
+	</fieldset>
+</div>
+{% include "footer.html" %}

@@ -1,0 +1,20 @@
+{% include "header.html" %}
+
+<div class="conteudo">
+	<h1>Disciplinas</h1>
+
+	<fieldset>
+		<table class="tab">
+			<tr>
+				<th>COD</th><th>Nome</th>
+			</tr>
+			{% for disciplina in disciplinas %}
+			<tr>
+				<td>{{disciplina.codigo}}</td>
+				<td><a href="{{disciplina.id}}/info_disciplina">{{disciplina.nome}}</a></td>
+			</tr>
+			{%endfor%}
+		</table>
+	</fieldset>
+</div>
+{% include "footer.html" %}

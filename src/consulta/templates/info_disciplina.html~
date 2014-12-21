@@ -1,0 +1,42 @@
+{% include "header.html" %}
+
+<div class="conteudo">
+<h1>Informações Disciplina</h1>
+<br />
+<fieldset>
+	<legend>Disciplina</legend>
+	<table>
+		<tr>
+			<td><b>Codigo:</b></td><td>{{disciplina.codigo}}</td>
+			<td><b>Nome:</b></td><td>{{disciplina.nome}}</td>
+		</tr>
+		<tr>
+			<td><b>Creditos:</b></td><td>{{cred}}</td>
+			<td><b>Credios minimos:</b></td><td>{{cred_min}}</td>
+			<td><b>Pre-Requisito:</b></td><td>----</td>
+		</tr>
+		<tr>
+			<td><b>Professor responsavel:</b></td><td>{{disciplina.professor.nome}}</td>
+		</tr>
+	</table>
+</fieldset>
+<br />
+<br />
+<fieldset>
+	<legend>Alunos Matriculados</legend>
+
+	<table class="tab">
+		<tr>
+			<th>Matricula</th>
+			<th>Nome do Aluno</th>
+		</tr>
+		{% for aluno in alunos %}
+		<tr>
+			<td>{{aluno.matricula}}</td>
+			<td>{{aluno.nome}}</td>
+		</tr>
+		{%endfor%}
+	</table>
+</fieldset>
+</div>
+{% include "footer.html" %}
